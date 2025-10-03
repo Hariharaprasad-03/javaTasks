@@ -70,12 +70,22 @@ public class Task5 {
         return sum;
     }
 
+    public static int oddLengthSubarraySum(int[] nums) {
+        int sum =0;
+        for ( int i = 0 ; i < nums.length ; ++i){
+
+            int contribution = (i+1)*(nums.length-i);
+            int oddContibution = contribution/2;
+            if ( contribution%2==1) oddContibution++;
+            sum += oddContibution*nums[i];
+        }
+        return sum;
+    }
+
     public static void main(String[] args) {
         
-        int[][] arr = new int[3][3];
-        getInputTwoDArray(arr);
-        printTwoDArray(arr);
-        System.out.println(diagonalSum(arr));
+        int[] nums = {1,4,2,5,3};
+        System.out.println(oddLengthSubarraySum(nums));
                 
     }
     
