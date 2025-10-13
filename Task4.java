@@ -178,7 +178,7 @@ public class Task4 {
         int key = nums[n-1];
         int pos = n-2;
 
-        while (pos>=0 && nums[pos]>key) {
+        while (pos>=0 && nums[pos]>key) { 
 
             nums[pos+1]=nums[pos];
             pos--;

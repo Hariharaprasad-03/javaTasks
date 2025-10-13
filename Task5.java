@@ -19,6 +19,21 @@ public class Task5 {
 
     }
 
+    public static void getInputTwoDArray(String[][] arr) {
+        Scanner sc = new Scanner(System.in);
+
+        for ( int i = 0 ; i < arr.length ; ++i) {
+
+            for ( int j = 0 ; j < arr[i].length ; ++j) {
+
+                arr[i][j] = sc.next();
+
+            }
+
+        }
+        sc.close();
+    }
+
     public static void printTwoDArray(int[][] arr) {
 
         for ( int i = 0 ; i < arr.length ; ++i) {
@@ -66,8 +81,25 @@ public class Task5 {
             else {
                 sum+=arr[i][j]+arr[j][i];
             }
+            i++;
+            j--;
         }
         return sum;
+    }
+
+    public static void printTwoDArray(String[][] arr) {
+
+        for ( int i = 0 ; i < arr.length ; ++i) {
+
+            for ( int j = 0 ; j < arr[i].length ; ++j) {
+
+                System.out.print(arr[i][j]+" ");
+
+            }
+            System.out.println();
+
+        }
+
     }
 
     public static int oddLengthSubarraySum(int[] nums) {
@@ -86,7 +118,8 @@ public class Task5 {
         
         int[] nums = {1,4,2,5,3};
         System.out.println(oddLengthSubarraySum(nums));
-                
+        int ans =diagonalSum(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
+        System.out.println(ans);
     }
     
 }

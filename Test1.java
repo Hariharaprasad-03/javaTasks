@@ -1,4 +1,6 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Test1 {
@@ -79,6 +81,8 @@ public class Test1 {
 
             if( solve2(s,i,words,0,vis)){
 
+                Arrays.fill(vis, false);
+
                 ans.add(i);
         
             }
@@ -99,10 +103,12 @@ public class Test1 {
 
             String st = words.get(ind);
 
-            if(  i+st.length() < s.length() && s.substring(i, i+st.length()).equals(st) ) {
+            if(  i+st.length() <= s.length() && s.substring(i, i+st.length()).equals(st) ) {
                 
                 vis[ind]=true;
-                solve2(s,i+st.length(),words,match+1,vis);
+                 if (solve2(s,i+st.length(),words,match+1,vis)) {
+                    return true;
+                 }
                 vis[ind]=false;
             }
             
@@ -147,16 +153,13 @@ public class Test1 {
         }
 
     }
-
+   
     public static void main(String[] args) {
 
         List<String> words = new ArrayList<>();
         words.add("bar");
         words.add("foo");
-        String s = "barfoothefoobarman";
-
-        List<Integer> ans =search(s, words);
-        System.out.println(ans);
+        words.add("the");
 
     }
     
